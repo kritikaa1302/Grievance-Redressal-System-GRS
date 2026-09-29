@@ -1,0 +1,528 @@
+:root {
+  --primary: #4F46E5;
+  --primary-rgb: 79, 70, 229;
+  --primary-hover: #4338CA;
+  --secondary: #64748B;
+  --accent: #F59E0B;
+  --background: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --text-main: #1E293B;
+  --text-muted: #64748B;
+  --border: #E2E8F0;
+
+  --success: #10B981;
+  --success-bg: #D1FAE5;
+  --success-text: #059669;
+  --warning: #F59E0B;
+  --warning-bg: #FEF3C7;
+  --warning-text: #D97706;
+  --error: #EF4444;
+  --error-bg: rgba(239, 68, 68, 0.1);
+  --neutral-bg: #F1F5F9;
+  --neutral-text: #475569;
+
+  --admin: #DC2626;
+  --admin-rgb: 220, 38, 38;
+
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --input-bg: #fcfcfc;
+  --input-bg-focus: #ffffff;
+
+  --radius: 12px;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* Keep Bootstrap's own variables in sync so its utility classes
+     (text-primary, bg-primary, etc.) match this design system */
+  --bs-primary: var(--primary);
+  --bs-primary-rgb: var(--primary-rgb);
+  --bs-body-bg: var(--background);
+  --bs-body-color: var(--text-main);
+  --bs-border-color: var(--border);
+  --bs-secondary-color: var(--text-muted);
+  --bs-secondary-rgb: 100, 116, 139;
+  --bs-link-color: var(--primary);
+  --bs-link-hover-color: var(--primary-hover);
+
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --primary: #6366F1;
+  --primary-rgb: 99, 102, 241;
+  --primary-hover: #818CF8;
+  --secondary: #94A3B8;
+  --accent: #FBBF24;
+  --background: #0F172A;
+  --card-bg: #1E293B;
+  --text-main: #F1F5F9;
+  --text-muted: #94A3B8;
+  --border: #334155;
+
+  --success: #34D399;
+  --success-bg: rgba(52, 211, 153, 0.15);
+  --success-text: #6EE7B7;
+  --warning: #FBBF24;
+  --warning-bg: rgba(251, 191, 36, 0.15);
+  --warning-text: #FCD34D;
+  --error: #F87171;
+  --error-bg: rgba(248, 113, 113, 0.15);
+  --neutral-bg: rgba(148, 163, 184, 0.15);
+  --neutral-text: #CBD5E1;
+
+  --admin: #F87171;
+  --admin-rgb: 248, 113, 113;
+
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --input-bg: #0F172A;
+  --input-bg-focus: #1E293B;
+
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+
+  --bs-primary: var(--primary);
+  --bs-primary-rgb: var(--primary-rgb);
+  --bs-body-bg: var(--background);
+  --bs-body-color: var(--text-main);
+  --bs-border-color: var(--border);
+  --bs-secondary-color: var(--text-muted);
+  --bs-secondary-rgb: 148, 163, 184;
+  --bs-link-color: var(--primary);
+  --bs-link-hover-color: var(--primary-hover);
+
+  color-scheme: dark;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: var(--background);
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Navbar content spans the full width of the screen (unlike .container,
+   which is capped for readability on page content) with responsive
+   side padding instead of a hard max-width. */
+.navbar-inner {
+  width: 100%;
+  padding: 0 clamp(1rem, 4vw, 3rem);
+  box-sizing: border-box;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Glassmorphism Classes */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Premium Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0 4px 14px 0 rgba(var(--primary-rgb), 0.39);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(var(--primary-rgb), 0.23);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--border);
+  color: var(--text-main);
+}
+
+.btn-outline:hover {
+  background-color: var(--border);
+  border-color: var(--border);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Premium Cards */
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.25s;
+  border: 1px solid var(--border);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background-color: var(--input-bg);
+  color: var(--text-main);
+  transition: all 0.2s;
+  font-family: inherit;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.1);
+  background-color: var(--input-bg-focus);
+}
+
+.form-control::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* Status Badges (theme-aware, replaces inline hex colors) */
+.badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.badge-success { background: var(--success-bg); color: var(--success-text); }
+.badge-warning { background: var(--warning-bg); color: var(--warning-text); }
+.badge-neutral { background: var(--neutral-bg); color: var(--neutral-text); }
+.badge-error { background: var(--error-bg); color: var(--error); }
+
+/* Nav link hover (moved out of styled-jsx, which isn't supported by plain Vite) */
+.nav-link {
+  position: relative;
+}
+.nav-link:hover {
+  color: var(--primary) !important;
+}
+
+/* Theme toggle switch */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.theme-toggle:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: rotate(15deg);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Scroll-reveal (fades/slides sections in the first time they enter
+   the viewport — see components/Reveal.jsx) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Responsive Grid */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1000px) {
+  .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 640px) and (max-width: 999px) {
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Auth Pages Custom Styles */
+.auth-wrapper {
+  min-height: calc(100vh - 90px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+  padding: 2rem;
+}
+
+[data-theme='dark'] .auth-wrapper {
+  background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+}
+
+/* Mobile nav */
+.mobile-menu-btn {
+  display: none;
+}
+
+@media (max-width: 860px) {
+  .desktop-nav-links {
+    display: none !important;
+  }
+  .mobile-menu-btn {
+    display: inline-flex;
+  }
+}
+
+/* Hero / content carousels (Bootstrap Carousel, restyled) */
+.hero-carousel {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 2.5rem;
+}
+
+.hero-slide {
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  padding: 3rem 1.5rem;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 640px) {
+  .hero-slide {
+    min-height: 260px;
+    padding: 2rem 1.25rem;
+  }
+}
+
+.hero-slide-icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  font-size: 1.6rem;
+  backdrop-filter: blur(4px);
+}
+
+.hero-slide h3 {
+  color: #ffffff;
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.hero-slide p {
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 480px;
+  margin: 0 auto;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+/* Carousel controls: circular, theme-neutral (slides are always colorful) */
+.hero-carousel .carousel-control-prev,
+.hero-carousel .carousel-control-next {
+  width: 48px;
+  height: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  opacity: 0.8;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+.hero-carousel .carousel-control-prev { left: 1rem; }
+.hero-carousel .carousel-control-next { right: 1rem; }
+
+.hero-carousel .carousel-control-prev:hover,
+.hero-carousel .carousel-control-next:hover {
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.hero-carousel .carousel-indicators {
+  margin-bottom: 0.75rem;
+}
+
+.hero-carousel .carousel-indicators [data-bs-target] {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+}
+
+.hero-carousel .carousel-indicators .active {
+  background-color: #ffffff;
+  width: 22px;
+  border-radius: 4px;
+}
+
+/* Step carousel (How It Works) */
+.step-carousel .carousel-item {
+  padding: 0.5rem 0.5rem 2.5rem;
+}
+
+.step-carousel .carousel-indicators [data-bs-target] {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--border);
+  opacity: 1;
+}
+
+.step-carousel .carousel-indicators .active {
+  background-color: var(--primary);
+  width: 22px;
+  border-radius: 4px;
+}
+
+.step-carousel .carousel-control-prev,
+.step-carousel .carousel-control-next {
+  width: 44px;
+  height: 44px;
+  top: 45%;
+  transform: translateY(-50%);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  opacity: 1;
+  box-shadow: var(--shadow);
+}
+
+.step-carousel .carousel-control-prev { left: -10px; }
+.step-carousel .carousel-control-next { right: -10px; }
+
+@media (max-width: 640px) {
+  .step-carousel .carousel-control-prev { left: 0; }
+  .step-carousel .carousel-control-next { right: 0; }
+}
+
+.step-carousel .carousel-control-prev-icon,
+.step-carousel .carousel-control-next-icon {
+  /* Bootstrap's default carousel icon is a plain white SVG. That's
+     invisible against this carousel's white/light card background, so
+     invert it to dark by default... */
+  filter: invert(1);
+}
+
+[data-theme='dark'] .step-carousel .carousel-control-prev-icon,
+[data-theme='dark'] .step-carousel .carousel-control-next-icon {
+  /* ...and in dark mode the card background is dark, so the original
+     white icon is already visible — undo the inversion. */
+  filter: none;
+}

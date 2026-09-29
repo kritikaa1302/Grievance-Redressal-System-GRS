@@ -1,0 +1,75 @@
+const mongoose = require('mongoose')
+
+const studentSchema = mongoose.Schema({
+    name:{
+        type:String,
+        required:true
+    },
+    fatherName:{
+        type:String,
+        required:true
+    },
+    email:{
+        type:String,
+        required:true
+    },
+    gender:{
+        type:String,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true
+    },
+    address:{
+        type:String,
+        required:true
+    },
+    mobile:{
+        type:String,
+        required:true,
+    },
+    dob:{
+        type:String,
+        required:true,
+    },
+    sessionId:{
+        type:mongoose.Schema.ObjectId,
+        ref:'Session'
+    },
+    city:{
+        type:String,
+        required:true
+    },
+    pincode:{
+        type:String,
+        required:true
+    },
+    course:{
+        type:String,
+        required:true,
+    },
+    collegeId:{
+        type:mongoose.Schema.ObjectId,
+        ref:"College"
+    },
+    picture:{
+        type:String,
+    },
+    isDeleted:{
+        type:Boolean,
+        default:false
+    },
+    status:{
+        type:String,
+        enum:['active','inactive'],
+        default:'active'
+    },
+    isVerified:{
+        type:Boolean,
+        default:false
+    }
+},{
+    timestamps:true
+});
+module.exports = mongoose.model("Student",studentSchema);
