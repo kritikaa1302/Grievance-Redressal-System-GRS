@@ -2,6 +2,7 @@
 
 A full-stack web application developed during my summer internship at **Softpro India Computer Technologies Pvt. Ltd.** The project was assigned to digitize the grievance-handling process for **Lalit Narayan Mithila University (L.N.M.U.), Darbhanga, Bihar**.
 **Project Duration:** July 2026 – Present
+
 The application provides a centralized platform for submitting grievances, tracking their status, and managing complaint records.
 
 ## Features
