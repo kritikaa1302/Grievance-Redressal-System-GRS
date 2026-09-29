@@ -173,7 +173,7 @@ These are potential enhancements and are not presented as currently implemented 
 
 ## Author
 
-**Priyanshi Ag**  
+**KRITIKA GROVER**  
 B.Tech, Computer Science and Engineering  
 SRMS College of Engineering and Technology  
 GitHub: [kritikaa1302](https://github.com/kritikaa1302)
